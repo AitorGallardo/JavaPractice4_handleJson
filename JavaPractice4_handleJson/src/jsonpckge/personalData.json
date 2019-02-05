@@ -1,10 +1,8 @@
 {
-    "personal":[
-        {"nif":"543676N", "name":"Carla","born_date":"04-05-1982","specialization":"air","assigned":false},
-        {"nif":"543676N", "name":"Carla","born_date":"04-05-1982","specialization":"air","assigned":false},
-        {"nif":"543676N", "name":"Carla","born_date":"04-05-1982","specialization":"air","assigned":false},
-        {"nif":"543676N", "name":"Carla","born_date":"04-05-1982","specialization":"air","assigned":false}
-
+"staff":[
+        {"id":"543676N", "name":"Carla","born_date":"04-05-1982","specialization":"A","assigned":false},
+        {"id":"643677V", "name":"Marc","born_date":"02-06-1997","specialization":"M","assigned":false},
+        {"id":"173676D", "name":"Maik","born_date":"23-11-1999","specialization":"A","assigned":false},
+        {"id":"425676S", "name":"Stuart","born_date":"18-03-1980","specialization":"L","assigned":false}
     ]
-
 }

@@ -1,3 +1,4 @@
+package core;
 
 public class LandTypeV extends Vehicle {
 	
