@@ -1,0 +1,10 @@
+{
+    "personal":[
+        {"nif":"543676N", "name":"Carla","born_date":"04-05-1982","specialization":"air","assigned":false},
+        {"nif":"543676N", "name":"Carla","born_date":"04-05-1982","specialization":"air","assigned":false},
+        {"nif":"543676N", "name":"Carla","born_date":"04-05-1982","specialization":"air","assigned":false},
+        {"nif":"543676N", "name":"Carla","born_date":"04-05-1982","specialization":"air","assigned":false}
+
+    ]
+
+}

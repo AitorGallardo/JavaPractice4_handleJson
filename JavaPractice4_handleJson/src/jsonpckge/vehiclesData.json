@@ -1,0 +1,19 @@
+{
+    "vehicles":{
+        "landTypeV":[
+            {},
+            {},
+            {}
+        ],
+        "maritimeTypeV":[
+            {},
+            {},
+            {}
+        ],
+        "airTypeV":[
+            {},
+            {},
+            {}
+        ]
+    }
+}
