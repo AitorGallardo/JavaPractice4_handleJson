@@ -11,6 +11,7 @@ public abstract class Vehicle {
 	protected String identificador;
 	protected double median_speed;
 	protected String crewmanId;
+
 	
 	
 	abstract double totalConsumption();
