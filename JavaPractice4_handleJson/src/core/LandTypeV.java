@@ -9,7 +9,7 @@ public class LandTypeV extends Vehicle {
 	public LandTypeV(String id, char type, double median_speed, double consumption_per_km, 
 					double max_capacity, double actual_loading, double min_consumption, int horsePower, int numberOfBreakdows, int priceOfBreakdowns) {
 
-		super.indentificador = id;
+		super.identificador = id;
 		super.vehicle_type = type;
 		super.median_speed = median_speed;
 		super.consumption_per_km = consumption_per_km;
