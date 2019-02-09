@@ -89,20 +89,20 @@ public class HandleLists {
 
                 switch(type){
                     case 'L':
-                    int horsePower = (int)eachVehicle.get("horsePower");
-                    int numberOfBreakdows = (int)eachVehicle.get("numberOfBreakdows");
-                    int priceOfBreakdowns = (int)eachVehicle.get("priceOfBreakdowns");
+                    int horsePower = ((Long)eachVehicle.get("horsePower")).intValue();
+                    int numberOfBreakdows = ((Long)eachVehicle.get("numberOfBreakdowns")).intValue();
+                    int priceOfBreakdowns = ((Long)eachVehicle.get("priceOfBreakdowns")).intValue();
                     vehicleList.add(new LandTypeV(id, type, median_speed, consumption_per_km, max_capacity,actual_loading,min_consumption, horsePower,numberOfBreakdows,priceOfBreakdowns));
                         break;
                     case 'A':
-                    int numberOfEngines = (int)eachVehicle.get("numberOfEngines");
-                    int operatingTime = (int)eachVehicle.get("operatingTime");
+                    int numberOfEngines = ((Long)eachVehicle.get("numberOfEngines")).intValue();;
+                    int operatingTime = ((Long)eachVehicle.get("operatingTime")).intValue();
                     vehicleList.add(new AirTypeV(id, type, median_speed, consumption_per_km, max_capacity,actual_loading,min_consumption, numberOfEngines,operatingTime));
                         break;
                     case 'M':
-                    int lenght = (int)eachVehicle.get("lenght");
-                    int beam = (int)eachVehicle.get("beam");
-                    int flotationDate = (int)eachVehicle.get("flotationDate");
+                    int lenght = ((Long)eachVehicle.get("lenght")).intValue();
+                    int beam = ((Long)eachVehicle.get("beam")).intValue();
+                    int flotationDate = ((Long)eachVehicle.get("flotationDate")).intValue();
                     String date0fManufacture = (String)eachVehicle.get("date0fManufacture");
                     vehicleList.add(new MaritimeTypeV(id, type, median_speed, consumption_per_km, max_capacity,actual_loading,min_consumption, lenght,beam,flotationDate, date0fManufacture));
                         break;

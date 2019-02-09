@@ -40,16 +40,23 @@ public class Main {
 
                     case 'a':
                     	vehicleList = handler.parseVehiclesData();
+                    	 System.out.println("Vehicle's data has been loaded correctly");
                         break;
                     case 'b':
                     	handler.parseStaffData();
+                    	 System.out.println("Staff's data has been loaded correctly");
                         break;
                     case 'c':
-                    	printVehicleList();
+                    	if(!vehicleList.isEmpty()) {
+                    		printVehicleList();
+                    	}
+                   	 	System.out.println();
+                    	//menu();
                         break;
                     case 'd':
                     	vehicleList.clear();
                     	vehicleList = handler.assignStaff();
+                    	 System.out.println("Staff has been assigned");
                         break;
                     case 'e':
                             System.out.println("Program has been ended");
