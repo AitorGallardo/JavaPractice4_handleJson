@@ -11,6 +11,7 @@ public abstract class Vehicle {
 	protected String identificador;
 	protected double median_speed;
 	protected String crewmanId;
+	protected String crewmanName;
 
 	
 	
@@ -95,6 +96,18 @@ public abstract class Vehicle {
 	public void setCrewmanId(String crewmanId) {
 		this.crewmanId = crewmanId;
 	}
+
+
+	public String getCrewmanName() {
+		return crewmanName;
+	}
+
+
+	public void setCrewmanName(String crewmanName) {
+		this.crewmanName = crewmanName;
+	}
+	
+	
 	
 	//get-set
 	

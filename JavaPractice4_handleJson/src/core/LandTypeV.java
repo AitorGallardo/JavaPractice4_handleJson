@@ -28,4 +28,30 @@ public class LandTypeV extends Vehicle {
 		return totalConsumption;
 	}
 
+	public int getHorsePower() {
+		return horsePower;
+	}
+
+	public void setHorsePower(int horsePower) {
+		this.horsePower = horsePower;
+	}
+
+	public int getNumberOfBreakdows() {
+		return numberOfBreakdows;
+	}
+
+	public void setNumberOfBreakdows(int numberOfBreakdows) {
+		this.numberOfBreakdows = numberOfBreakdows;
+	}
+
+	public int getPriceOfBreakdowns() {
+		return priceOfBreakdowns;
+	}
+
+	public void setPriceOfBreakdowns(int priceOfBreakdowns) {
+		this.priceOfBreakdowns = priceOfBreakdowns;
+	}
+	
+	
+
 }

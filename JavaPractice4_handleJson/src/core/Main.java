@@ -2,6 +2,7 @@ package core;
 
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -10,12 +11,14 @@ import jsonpckge.ReadJson;
 
 public class Main {
 	
-	ArrayList<Staff> staffList = new ArrayList<>();
+	HandleLists handler = new HandleLists();
+    char[] allowedInputs = {'a','b','c','d','e'};
+    
+
 	ArrayList<Vehicle> vehicleList = new ArrayList<>();
 
 	public static void main(String[] args) {
 	
-
 		Main hola = new Main();
 		hola.init();
 		
@@ -24,92 +27,111 @@ public class Main {
 	
 	public void init() {
 		
-		parseStaffData();
-	
+         char userInp = 'j';
+
+        try
+        {
+            menu();
+            while (userInp != 'e')
+            {
+                userInp = userInput();
+                switch (userInp)
+                {
+
+                    case 'a':
+                    	vehicleList = handler.parseVehiclesData();
+                        break;
+                    case 'b':
+                    	handler.parseStaffData();
+                        break;
+                    case 'c':
+                    	printVehicleList();
+                        break;
+                    case 'd':
+                    	vehicleList.clear();
+                    	vehicleList = handler.assignStaff();
+                        break;
+                    case 'e':
+                            System.out.println("Program has been ended");
+                        break;
+                }
+                    
+            }
+        }
+        catch (Exception e)
+        {
+                System.out.println("Something went wrong. Please restart");
+        }
+
 	}
-	
-	public void parseStaffData() {
-		
-		String pplData = "jsonpckge/personalData.json";
-		
-		JSONObject staffJsonObj = ReadJson.getFileAndParseToJsonObj(pplData);
-		
-		try{
-			
-			JSONArray arrayData = (JSONArray)staffJsonObj.get("staff");
-			
-			for(int i = 0; i < arrayData.size() ; i++) { 
-			
-				JSONObject sMember = (JSONObject)arrayData.get(i);
-				String nif = (String)sMember.get("id");
-				String name = (String)sMember.get("name");
-				String born_date = (String)sMember.get("born_date");
-				String specialization = (String)sMember.get("specialization");
-				Boolean assigned = (Boolean)sMember.get("assigned");
-				
-				staffList.add(new Staff(nif, name, born_date, specialization, assigned));			
-			}
-			
-			staffList.forEach(ea-> System.out.println(ea.getId()));
-			
-		} catch(Exception e){
-			e.printStackTrace();
-		}
-	}
 
-	public void parseVehiclesData() { // NO ESTOY PARSEANDO CREWMAN
-		
-    String vehiclesObj = "jsonpckge/vehicleslData.json";
+    char userInput() {
     
-    JSONObject vehiclesJsonObj = ReadJson.getFileAndParseToJsonObj(vehiclesObj);
-    
-    try{
+        boolean outOfLoop = false;
+        char input = 0;
+        Scanner log = new Scanner(System.in);
         
-        JSONArray arrayData = (JSONArray)vehiclesJsonObj.get("vehicles");
-        
-        for(int i = 0; i < arrayData.size() ; i++) { 
-        
-            JSONObject eachVehicle = (JSONObject)arrayData.get(i);
-
-            String id = (String)eachVehicle.get("identificador");
-            char type = (char)eachVehicle.get("vehicle_type");
-            double median_speed = (double)eachVehicle.get("median_speed");
-            double consumption_per_km = (double)eachVehicle.get("consumption_per_km");
-            double max_capacity = (double)eachVehicle.get("max_capacity");
-            double actual_loading = (double)eachVehicle.get("actual_loading");
-            double min_consumption = (double)eachVehicle.get("min_consumption");
-            
-
-            switch(type){
-                case 'L':
-                int horsePower = (int)eachVehicle.get("horsePower");
-                int numberOfBreakdows = (int)eachVehicle.get("numberOfBreakdows");
-                int priceOfBreakdowns = (int)eachVehicle.get("priceOfBreakdowns");
-                vehicleList.add(new LandTypeV(id, type, median_speed, consumption_per_km, max_capacity,actual_loading,min_consumption, horsePower,numberOfBreakdows,priceOfBreakdowns));
-                    break;
-                case 'A':
-                int numberOfEngines = (int)eachVehicle.get("numberOfEngines");
-                int operatingTime = (int)eachVehicle.get("operatingTime");
-                vehicleList.add(new AirTypeV(id, type, median_speed, consumption_per_km, max_capacity,actual_loading,min_consumption, numberOfEngines,operatingTime));
-                    break;
-                case 'M':
-                int lenght = (int)eachVehicle.get("lenght");
-                int beam = (int)eachVehicle.get("beam");
-                int flotationDate = (int)eachVehicle.get("flotationDate");
-                String date0fManufacture = (String)eachVehicle.get("date0fManufacture");
-                vehicleList.add(new MaritimeTypeV(id, type, median_speed, consumption_per_km, max_capacity,actual_loading,min_consumption, lenght,beam,flotationDate, date0fManufacture));
-                    break;
-
+        while(outOfLoop==false){
+        	
+            input=log.next().toLowerCase().charAt(0);
+            for(int i =0 ; i < allowedInputs.length; i++){ 
+                if(allowedInputs[i] == input){
+                    outOfLoop=true;
+                }
+            }
+            if(outOfLoop==false) {
+                System.out.println("\nWrong Keys. \n");
+                menu();
             }
             
-           			
         }
-        
-        staffList.forEach(ea-> System.out.println(ea.getId()));
-        
-    } catch(Exception e){
-        e.printStackTrace();
+        return input;
     }
-}
+	
+    void menu() {
+	    System.out.println("Press 'A' to get vehicle data");
+	    System.out.println("Press 'B' to get staff data");
+	    System.out.println("Press 'C' to assign available staff to vehicles");
+	    System.out.println("Press 'D' to show vehicle data");
+	    System.out.println("Press 'E' to finish");
+    }
+	
+    void printVehicleList() {
+
+        for(Vehicle vehicle: vehicleList){
+
+            System.out.println("Type: "+vehicle.getVehicle_type());
+            System.out.println("Id: "+vehicle.getIdentificador());
+            System.out.println("Min. Consumption: "+vehicle.getMin_consumption());
+            System.out.println("Actual loading: "+vehicle.getActual_loading());
+            System.out.println("Max capacity: "+vehicle.getMax_capacity());
+            System.out.println("Consuption per Km: "+vehicle.getConsumption_per_km());
+            System.out.println("Median speed: "+vehicle.getMedian_speed());
+            System.out.println("Crewman Id: "+vehicle.getCrewmanId());
+            System.out.println("Crewman Name: "+vehicle.getCrewmanName());
+
+            switch(vehicle.getVehicle_type()){
+                case 'A':
+                    System.out.println("N. of engines: "+((AirTypeV)vehicle).getNumberOfEngines());
+                    System.out.println("Operating time: "+((AirTypeV)vehicle).getOperatingTime());
+                    break;
+                case 'L':
+                    System.out.println("HorsePower: "+((LandTypeV)vehicle).getHorsePower());
+                    System.out.println("N. of breakdowns: "+((LandTypeV)vehicle).getNumberOfBreakdows());
+                    System.out.println("Price of breakdowns: "+((LandTypeV)vehicle).getPriceOfBreakdowns());
+                    break;
+                case 'T':
+                    System.out.println("Lenght: "+((MaritimeTypeV)vehicle).getLenght());
+                    System.out.println("Beam: "+((MaritimeTypeV)vehicle).getBeam());
+                    System.out.println("Flotation date: "+((MaritimeTypeV)vehicle).getFlotationDate());
+                    System.out.println("Date of manufacture: "+((MaritimeTypeV)vehicle).getDate0fManufacture());
+                    break;
+            }
+
+            System.out.println("---------------------------------");
+            System.out.println("---------------------------------");
+        }
+    }
+
 
 }

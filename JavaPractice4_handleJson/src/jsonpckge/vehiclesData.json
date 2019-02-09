@@ -1,16 +1,74 @@
 {
-    "vehicles":[
-        {"identificador":"1", "vehicle_type":"A", "median_speed":800.00, "consumption_per_km":20.00, 
-            "max_capacity":200.00, "actual_loading":100.00, "min_consumption":2.00, "numberOfEngines":8, "operatingTime":300},
-        {"identificador":"2", "vehicle_type":"L", "median_speed":800.00, "consumption_per_km":20.00, 
-            "max_capacity":200.00, "actual_loading":100.00, "min_consumption":2.00, "horsePower":400, "numberOfBreakdowns":2, "priceOfBreakdowns":4500},
-        {"identificador":"3", "vehicle_type":"A", "median_speed":840.00, "consumption_per_km":21.00, 
-            "max_capacity":200.00, "actual_loading":100.00, "min_consumption":4.00, "numberOfEngines":8, "operatingTime":702},
-        {"identificador":"4", "vehicle_type":"M", "median_speed":800.00, "consumption_per_km":20.00, 
-            "max_capacity":200.00, "actual_loading":100.00, "min_consumption":3.50, "lenght":12, "beam":5, "flotationDate":2012, "dateOfManufacture":"30/06/2012"},
-        {"identificador":"5", "vehicle_type":"A", "median_speed":1300.00, "consumption_per_km":21.00, 
-            "max_capacity":200.00, "actual_loading":100.00, "min_consumption":4.00, "numberOfEngines":12, "operatingTime":432},
-        {"identificador":"6", "vehicle_type":"M", "median_speed":800.00, "consumption_per_km":20.00, 
-            "max_capacity":400.00, "actual_loading":100.00, "min_consumption":8.00, "lenght":15, "beam":8, "flotationDate":2016, "dateOfManufacture":"12/08/2015"}        
-    ]
+	"vehicles": [{
+			"identificador": "1",
+			"vehicle_type": "A",
+			"median_speed": 800.00,
+			"consumption_per_km": 20.00,
+			"max_capacity": 200.00,
+			"actual_loading": 100.00,
+			"min_consumption": 2.00,
+			"numberOfEngines": 8,
+			"operatingTime": 300
+		},
+		{
+			"identificador": "2",
+			"vehicle_type": "L",
+			"median_speed": 800.00,
+			"consumption_per_km": 20.00,
+			"max_capacity": 200.00,
+			"actual_loading": 100.00,
+			"min_consumption": 2.00,
+			"horsePower": 400,
+			"numberOfBreakdowns": 2,
+			"priceOfBreakdowns": 4500
+		},
+		{
+			"identificador": "3",
+			"vehicle_type": "A",
+			"median_speed": 840.00,
+			"consumption_per_km": 21.00,
+			"max_capacity": 200.00,
+			"actual_loading": 100.00,
+			"min_consumption": 4.00,
+			"numberOfEngines": 8,
+			"operatingTime": 702
+		},
+		{
+			"identificador": "4",
+			"vehicle_type": "M",
+			"median_speed": 800.00,
+			"consumption_per_km": 20.00,
+			"max_capacity": 200.00,
+			"actual_loading": 100.00,
+			"min_consumption": 3.50,
+			"lenght": 12,
+			"beam": 5,
+			"flotationDate": 2012,
+			"dateOfManufacture": "30/06/2012"
+		},
+		{
+			"identificador": "5",
+			"vehicle_type": "A",
+			"median_speed": 1300.00,
+			"consumption_per_km": 21.00,
+			"max_capacity": 200.00,
+			"actual_loading": 100.00,
+			"min_consumption": 4.00,
+			"numberOfEngines": 12,
+			"operatingTime": 432
+		},
+		{
+			"identificador": "6",
+			"vehicle_type": "M",
+			"median_speed": 800.00,
+			"consumption_per_km": 20.00,
+			"max_capacity": 400.00,
+			"actual_loading": 100.00,
+			"min_consumption": 8.00,
+			"lenght": 15,
+			"beam": 8,
+			"flotationDate": 2016,
+			"dateOfManufacture": "12/08/2015"
+		}
+	]
 }

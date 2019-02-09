@@ -30,4 +30,38 @@ public class MaritimeTypeV extends Vehicle {
 		return 0;
 	}
 
+	public int getLenght() {
+		return lenght;
+	}
+
+	public void setLenght(int lenght) {
+		this.lenght = lenght;
+	}
+
+	public int getBeam() {
+		return beam;
+	}
+
+	public void setBeam(int beam) {
+		this.beam = beam;
+	}
+
+	public int getFlotationDate() {
+		return flotationDate;
+	}
+
+	public void setFlotationDate(int flotationDate) {
+		this.flotationDate = flotationDate;
+	}
+
+	public String getDate0fManufacture() {
+		return date0fManufacture;
+	}
+
+	public void setDate0fManufacture(String date0fManufacture) {
+		this.date0fManufacture = date0fManufacture;
+	}
+	
+	
+
 }

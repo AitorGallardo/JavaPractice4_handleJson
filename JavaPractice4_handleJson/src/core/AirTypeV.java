@@ -26,4 +26,22 @@ public class AirTypeV extends Vehicle {
 		return 0;
 	}
 
+	public int getNumberOfEngines() {
+		return numberOfEngines;
+	}
+
+	public void setNumberOfEngines(int numberOfEngines) {
+		this.numberOfEngines = numberOfEngines;
+	}
+
+	public int getOperatingTime() {
+		return operatingTime;
+	}
+
+	public void setOperatingTime(int operatingTime) {
+		this.operatingTime = operatingTime;
+	}
+	
+	
+
 }

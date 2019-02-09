@@ -22,11 +22,6 @@ public class ReadJson {
 			FileReader reader = new FileReader(file.getAbsolutePath());
 			Object obj = parser.parse(reader);
 			JSONObject jsonObj = (JSONObject)obj;
-//			System.out.println(jsonObj.toString());
-//			JSONObject jsonObjElement = (JSONObject)jsonObj.get(objectName);
-//			System.out.println(jsonObjElement.toString());
-//			JSONArray data = (JSONArray)jsonObjElement.get("data");
-//			System.out.println(data.toString());
 			return jsonObj;
 			
 		} catch(Exception e){
@@ -35,7 +30,6 @@ public class ReadJson {
 		}
 		
 	}
-	
 	
 	
 
