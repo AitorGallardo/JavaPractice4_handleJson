@@ -21,12 +21,14 @@ public class HandleLists {
        for(Staff staffMember : staffList) {
 
            char staffSpecialization = staffMember.getSpecialization().charAt(0);
+           	
            // Gets first vehicle that equals with staff specialization
            vehicle = vehicleList.stream()
-			            .filter(vehicle -> vehicle.getVehicle_type() == staffSpecialization)
+			            .filter(vehicle -> (vehicle.getVehicle_type() == staffSpecialization)&&vehicle.getCrewmanId() == null)
 			            .findFirst();
+           
            vehicle.get().setCrewmanName(staffMember.getName());
-           vehicle.get().setCrewmanName(staffMember.getId());
+           vehicle.get().setCrewmanId(staffMember.getId());
            
         }
        
@@ -35,7 +37,7 @@ public class HandleLists {
    } 
 
 
-   public void parseStaffData() {
+   public ArrayList<Staff> parseStaffData() {
 		
 		String pplData = "jsonpckge/personalData.json";
 		
@@ -56,10 +58,12 @@ public class HandleLists {
 				
 				staffList.add(new Staff(nif, name, born_date, specialization, assigned));			
 			}
+			return staffList;
 						
 		} catch(Exception e){
 			
 			e.printStackTrace();
+			return null;
 		}
 	}
 
@@ -103,7 +107,7 @@ public class HandleLists {
                     int lenght = ((Long)eachVehicle.get("lenght")).intValue();
                     int beam = ((Long)eachVehicle.get("beam")).intValue();
                     int flotationDate = ((Long)eachVehicle.get("flotationDate")).intValue();
-                    String date0fManufacture = (String)eachVehicle.get("date0fManufacture");
+                    String date0fManufacture = (String)eachVehicle.get("dateOfManufacture");
                     vehicleList.add(new MaritimeTypeV(id, type, median_speed, consumption_per_km, max_capacity,actual_loading,min_consumption, lenght,beam,flotationDate, date0fManufacture));
                         break;
 
@@ -115,8 +119,6 @@ public class HandleLists {
             
         } catch(Exception e){
             e.printStackTrace();
-            System.out.println(vehiclesJsonObj.toString());
-            System.out.println(vehiclesData);
             return null;
         }
     }

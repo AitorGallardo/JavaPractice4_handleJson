@@ -16,24 +16,26 @@ public class Main {
     
 
 	ArrayList<Vehicle> vehicleList = new ArrayList<>();
+	ArrayList<Staff> staffList = new ArrayList<>();
 
 	public static void main(String[] args) {
 	
-		Main hola = new Main();
-		hola.init();
+		Main main = new Main();
+		main.init();
 		
 	}
 	
 	
-	public void init() {
+	void init() {
 		
          char userInp = 'j';
 
         try
         {
-            menu();
+            
             while (userInp != 'e')
             {
+            	menu();
                 userInp = userInput();
                 switch (userInp)
                 {
@@ -43,20 +45,25 @@ public class Main {
                     	 System.out.println("Vehicle's data has been loaded correctly");
                         break;
                     case 'b':
-                    	handler.parseStaffData();
+                    	staffList = handler.parseStaffData();
                     	 System.out.println("Staff's data has been loaded correctly");
                         break;
                     case 'c':
-                    	if(!vehicleList.isEmpty()) {
-                    		printVehicleList();
+                    	if(!vehicleList.isEmpty()&&!staffList.isEmpty()) {
+                    		vehicleList = handler.assignStaff();
+                    	}else {
+                    		System.out.println("You need to get staff and vehicles data before attach any vehicle");
                     	}
-                   	 	System.out.println();
-                    	//menu();
+                    	
+                    	 System.out.println("Staff has been assigned");
                         break;
                     case 'd':
-                    	vehicleList.clear();
-                    	vehicleList = handler.assignStaff();
-                    	 System.out.println("Staff has been assigned");
+                    	if(!vehicleList.isEmpty()) {
+                    		printVehicleList();
+                    	}else {
+                    		System.out.println("You need to get vehicles data to be able to dislplay it");
+                    	}
+
                         break;
                     case 'e':
                             System.out.println("Program has been ended");
@@ -96,6 +103,8 @@ public class Main {
     }
 	
     void menu() {
+    	System.out.println();
+    	System.out.println();
 	    System.out.println("Press 'A' to get vehicle data");
 	    System.out.println("Press 'B' to get staff data");
 	    System.out.println("Press 'C' to assign available staff to vehicles");
@@ -121,17 +130,20 @@ public class Main {
                 case 'A':
                     System.out.println("N. of engines: "+((AirTypeV)vehicle).getNumberOfEngines());
                     System.out.println("Operating time: "+((AirTypeV)vehicle).getOperatingTime());
+                    System.out.println("TOTAL CONSUMPTION: "+((AirTypeV)vehicle).totalConsumption());
                     break;
                 case 'L':
                     System.out.println("HorsePower: "+((LandTypeV)vehicle).getHorsePower());
                     System.out.println("N. of breakdowns: "+((LandTypeV)vehicle).getNumberOfBreakdows());
                     System.out.println("Price of breakdowns: "+((LandTypeV)vehicle).getPriceOfBreakdowns());
+                    System.out.println("TOTAL CONSUMPTION: "+((LandTypeV)vehicle).totalConsumption());
                     break;
-                case 'T':
+                case 'M':
                     System.out.println("Lenght: "+((MaritimeTypeV)vehicle).getLenght());
                     System.out.println("Beam: "+((MaritimeTypeV)vehicle).getBeam());
                     System.out.println("Flotation date: "+((MaritimeTypeV)vehicle).getFlotationDate());
                     System.out.println("Date of manufacture: "+((MaritimeTypeV)vehicle).getDate0fManufacture());
+                    System.out.println("TOTAL CONSUMPTION: "+((MaritimeTypeV)vehicle).totalConsumption());
                     break;
             }
 

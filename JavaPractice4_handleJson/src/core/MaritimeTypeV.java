@@ -26,8 +26,14 @@ public class MaritimeTypeV extends Vehicle {
 
 	@Override
 	double totalConsumption() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		String[] date = date0fManufacture.split("/");
+		int day = Integer.parseInt(date[0]);
+		int month = Integer.parseInt(date[1]);
+		int year = Integer.parseInt(date[2]);
+		
+		double totalConsumption = super.min_consumption + ((super.actual_loading / super.max_capacity) * super.consumption_per_km) + (this.lenght + this.beam+this.flotationDate)-(day+month+year);
+		return totalConsumption;
 	}
 
 	public int getLenght() {

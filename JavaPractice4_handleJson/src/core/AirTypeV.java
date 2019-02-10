@@ -22,8 +22,8 @@ public class AirTypeV extends Vehicle {
 
 	@Override
 	double totalConsumption() {
-		// TODO Auto-generated method stub
-		return 0;
+			double totalConsumption = super.min_consumption + ((super.actual_loading / super.max_capacity) * super.consumption_per_km) + (this.numberOfEngines * this.operatingTime);
+		return totalConsumption;
 	}
 
 	public int getNumberOfEngines() {

@@ -38,13 +38,13 @@
 			"vehicle_type": "M",
 			"median_speed": 800.00,
 			"consumption_per_km": 20.00,
-			"max_capacity": 200.00,
+			"max_capacity": 500.00,
 			"actual_loading": 100.00,
 			"min_consumption": 3.50,
 			"lenght": 12,
 			"beam": 5,
 			"flotationDate": 2012,
-			"dateOfManufacture": "30/06/2012"
+			"dateOfManufacture": "02/06/2012"
 		},
 		{
 			"identificador": "5",
